@@ -17,6 +17,9 @@ system/      - 求解器设置 + 网格图纸
 8. system/fvSolution
 
 ## 运行命令
+# 1. 启动OpenFoam
+source /opt/openfoam2406/etc/bashrc
+
 # 1. 生成网格
 blockMesh
 
