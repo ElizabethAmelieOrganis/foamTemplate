@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| 压力场 p                                                                   |
+| 作用：定义压力初始值 + 边界条件                                             |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+
+// 压力量纲
+dimensions      [0 2 -2 0 0 0 0];
+
+// 初始压力=0
+internalField   uniform 0;
+
+boundaryField
+{
+    // 入口：压力自由
+    inlet
+    {
+        type    zeroGradient;
+    }
+
+    // 出口：压力固定为0
+    outlet
+    {
+        type    fixedValue;
+        value   uniform 0;
+    }
+
+    // 壁面：压力自由
+    walls
+    {
+        type    zeroGradient;
+    }
+
+    // 2D空边界
+    frontAndBack
+    {
+        type    empty;
+    }
+}

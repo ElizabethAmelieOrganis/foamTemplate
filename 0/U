@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| 速度场 U                                                                   |
+| 作用：定义速度初始值 + 边界条件                                             |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+
+// 速度量纲：m/s
+dimensions      [0 1 -1 0 0 0 0];
+
+// 初始速度全场为0
+internalField   uniform (0 0 0);
+
+// 边界条件
+boundaryField
+{
+    // 入口：固定速度 1 m/s 向右
+    inlet
+    {
+        type    fixedValue;
+        value   uniform (1 0 0);
+    }
+
+    // 出口：速度自由流出
+    outlet
+    {
+        type    zeroGradient;
+    }
+
+    // 壁面：无滑移（速度=0）
+    walls
+    {
+        type    fixedValue;
+        value   uniform (0 0 0);
+    }
+
+    // 2D 空边界
+    frontAndBack
+    {
+        type    empty;
+    }
+}
