@@ -18,13 +18,20 @@ system/      - 求解器设置 + 网格图纸
 
 ## 运行命令
 # 1. 启动OpenFoam
-source /opt/openfoam2406/etc/bashrc
+```bash
+source /usr/lib/openfoam/openfoam2406/etc/bashrc
+run
+```
 
 # 1. 生成网格
+```bash
 blockMesh
+```
 
 # 2. 开始计算
+```bash
 simpleFoam
+```
 
 ## 可修改的地方
 1. system/blockMeshDict → 修改几何形状、网格大小
