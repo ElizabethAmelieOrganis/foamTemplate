@@ -14,4 +14,4 @@ FoamFile
 transportModel  Newtonian;
 
 // 运动粘度 nu = 1e-5 m²/s（接近空气）
-nu              nu [0 2 -1 0 0 0 0] 1e-05;
+nu              nu [0 2 -1 0 0 0 0] 1e-2;
