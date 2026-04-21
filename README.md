@@ -16,6 +16,17 @@ system/      - 求解器设置 + 网格图纸
 7. system/fvSchemes
 8. system/fvSolution
 
+## 数据流向
+```plain
+blockMeshDict ──→ 生成网格 ──→ constant/polyMesh/
+     ↑                                      ↓
+     └──────── 边界名字必须对应 ────────────┘
+                                             
+0/U, 0/p ──────→ 定义边界条件 ──→ 求解器读取
+     ↑                                      ↓
+     └────── 名字必须与 polyMesh/boundary 一致 ─┘
+```
+
 ## 运行命令
 # 1. 启动OpenFoam
 ```bash
@@ -43,3 +54,11 @@ simpleFoam
 inlet     入口
 outlet    出口
 walls     壁面
+
+# 3.Q&A
+
+## 如果提示找不到 bashrc，尝试：
+```bash
+ source /opt/openfoam12/etc/bashrc   # 基金会版本
+ source /usr/lib/openfoam/openfoam2406/etc/bashrc  # ESI 版本
+```
